@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-    swagger-edittor:
-      image: swaggerapi/swagger-edittor
-      container_name: "swagger-edittor"
+    swagger-editor:
+      image: swaggerapi/swagger-editor
+      container_name: "swagger-editor"
       ports:
         - "9081:8080"
 
