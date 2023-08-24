@@ -1,12 +1,26 @@
 version: '3.3'
 services:
-    nginx:
-        ports:
-            - '80:80'
-        volumes:
-            - '/var/run/docker.sock:/tmp/docker.sock:ro'
-        restart: always
-        logging:
-            options:
-                max-size: 1g
-        image: nginx
+    swagger-edittor:
+      image: swaggerapi/swagger-edittor
+      container_name: "swagger-edittor"
+      ports:
+        - "9081:8080"
+
+    swagger-ui:
+      image: swaggerapi/swagger-ui
+      container_name: "swagger-ui"
+      ports:
+        - "9082:8080"
+      volumes:
+        - ./petstore_api.yaml:/usr/share/nginx/html/petstore_api.yaml
+      environment:
+        API_URL: petstore_api.yaml
+
+    swagger-mock:
+      image: stoplight/prism:3
+      container_name: "mock-server"
+      ports:
+        - "9083:4010"
+      volumes:
+        - ./petstore_api.yaml:/petstore_api.yaml
+      command: mock -h 0.0.0.0 /
