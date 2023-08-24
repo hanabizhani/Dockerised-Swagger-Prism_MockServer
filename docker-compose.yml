@@ -12,9 +12,9 @@ services:
       ports:
         - "9082:8080"
       volumes:
-        - ./petstore_api.yaml:/usr/share/nginx/html/petstore_api.yaml
+        - ./api_ref:/usr/share/nginx/html/api_ref
       environment:
-        API_URL: petstore_api.yaml
+        API_URL: api_ref/petstore_api.yaml
 
     swagger-mock:
       image: stoplight/prism:3
