@@ -12,7 +12,7 @@ services:
       ports:
         - "9082:8080"
       volumes:
-        - petstore_api.yaml:/usr/share/nginx/html/petstore_api.yaml
+        - ./petstore_api.yaml:/usr/share/nginx/html/petstore_api.yaml
       environment:
         API_URL: petstore_api.yaml
 
