@@ -21,6 +21,6 @@ services:
       container_name: "mock-server"
       ports:
         - "9083:4010"
+      command: mock -h 0.0.0.0 /petstore_api.yaml
       volumes:
         - ./petstore_api.yaml:/petstore_api.yaml
-      command: mock -h 0.0.0.0 /
